@@ -28,7 +28,7 @@ mesd.pv <- function(data, ...) {
     spread(unico,valor) %>% rowwise() %>%
     mutate(d=abs(mean_pv1-mean_pv2)/(sqrt((de_pv1^2+de_pv2^2)/2)),
            g=abs(mean_pv1-mean_pv2)/sqrt(((contar1-1)*(de_pv1^2)+(contar2-1)*(de_pv2^2))/(contar1+contar2-2))) %>%
-    as.tibble() %>%
+    as_tibble() %>%
     summarise(Media_1=mean(mean_pv1),
               DE_1=mean(de_pv1),
               n1=mean(contar1),
